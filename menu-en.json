@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Margherita Pizza",
+    "price": 8.5,
+    "ingredients": "Tomato sauce, mozzarella, basil, olive oil",
+    "img": "images/Margherita Pizza.png"
+  },
+  {
+    "name": "Spaghetti Bolognese",
+    "price": 9.25,
+    "ingredients": "Beef ragu, slow-cooked tomato sauce, parmesan",
+    "img": "images/Spaghetti Bolognese.PNG"
+  },
+  {
+    "name": "Grilled Chicken Caesar Salad",
+    "price": 7.75,
+    "ingredients": "Romaine, grilled chicken, caesar dressing, croutons",
+    "img": "images/Grilled Chicken Caesar Salad.png"
+  },
+  {
+    "name": "Iced Latte",
+    "price": 3.5,
+    "ingredients": "Espresso, cold milk, ice cubes",
+    "img": "images/Iced latte.png"
+  },
+  {
+    "name": "Chocolate Lava Cake",
+    "price": 4.9,
+    "ingredients": "Dark chocolate, butter, eggs, sugar, cocoa powder",
+    "img": "images/Chocolate Lava Cake.png"
+  }
+]
