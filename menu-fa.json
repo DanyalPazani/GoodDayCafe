@@ -1,32 +1,93 @@
 [
   {
-    "name": "پیتزای مارگاریتا",
+    "name": "پیتزا مارگاریتا",
     "price": 8.5,
     "ingredients": "سس گوجه‌فرنگی، موزارلا، ریحان، روغن زیتون",
-    "img": "images/Margherita Pizza.png"
+    "img": "images/Margherita Pizza.png",
+    "category": "pizza"
   },
   {
-    "name": "اسپاگتی بولونز",
-    "price": 9.25,
-    "ingredients": "رگو گوشت گاو، سس گوجه پخته، پارمزان",
-    "img": "images/Spaghetti Bolognese.PNG"
+    "name": "پیتزا پپرونی",
+    "price": 9.2,
+    "ingredients": "سس گوجه‌فرنگی، موزارلا، پپرونی",
+    "img": "images/Pepperoni Pizza.png",
+    "category": "pizza"
+  },
+  {
+    "name": "برگر کلاسیک گوشت",
+    "price": 8.9,
+    "ingredients": "گوشت گوساله، پنیر چدار، کاهو، گوجه‌فرنگی، سس مخصوص",
+    "img": "images/Hamburger.png",
+    "category": "burgers"
+  },
+  {
+    "name": "برگر مرغ",
+    "price": 8.3,
+    "ingredients": "مرغ گریل‌شده، کاهو، سس مایونز",
+    "img": "images/Chicken Burger.png",
+    "category": "burgers"
   },
   {
     "name": "سالاد سزار با مرغ گریل‌شده",
     "price": 7.75,
-    "ingredients": "کاهو رومن، مرغ گریل‌شده، سس سزار، کروتون",
-    "img": "images/Grilled Chicken Caesar Salad.png"
+    "ingredients": "کاهوی رومن، مرغ گریل‌شده، سس سزار",
+    "img": "images/Grilled Chicken Caesar Salad.png",
+    "category": "salads"
   },
   {
-    "name": "لته سرد",
-    "price": 3.5,
-    "ingredients": "اسپرسو، شیر سرد، یخ",
-    "img": "images/Iced latte.png"
+    "name": "سالاد یونانی",
+    "price": 6.5,
+    "ingredients": "گوجه، خیار، زیتون، پنیر فتا",
+    "img": "images/Greek Salad.png",
+    "category": "salads"
+  },
+  {
+    "name": "کاپوچینو",
+    "price": 3.2,
+    "ingredients": "اسپرسو، شیر بخار داده‌شده، فوم",
+    "img": "images/Hot latte.png",
+    "category": "hot-drinks"
+  },
+  {
+    "name": "لته داغ",
+    "price": 3.4,
+    "ingredients": "اسپرسو، شیر داغ",
+    "img": "images/Hot latte.png",
+    "category": "hot-drinks"
+  },
+  {
+    "name": "موهیتو",
+    "price": 4.2,
+    "ingredients": "لیمو تازه، نعناع، سودا",
+    "img": "images/Mojito.png",
+    "category": "cold-drinks"
+  },
+  {
+    "name": "بلو لاگون",
+    "price": 4.3,
+    "ingredients": "شربت بلوکوراسائو، لیمو، سودا",
+    "img": "images/Blue Lagoon.png",
+    "category": "cold-drinks"
+  },
+  {
+    "name": "موهیتو توت‌فرنگی",
+    "price": 4.5,
+    "ingredients": "توت‌فرنگی، نعناع، لیمو، سودا",
+    "img": "images/Strawberry Mojito.png",
+    "category": "cold-drinks"
   },
   {
     "name": "کیک شکلاتی لاوا",
     "price": 4.9,
-    "ingredients": "شکلات تلخ، کره، تخم‌مرغ، شکر، پودر کاکائو",
-    "img": "images/Chocolate Lava Cake.png"
+    "ingredients": "شکلات تلخ، کره، تخم‌مرغ",
+    "img": "images/Chocolate Lava Cake.png",
+    "category": "dessert"
+  },
+  {
+    "name": "چیزکیک",
+    "price": 4.5,
+    "ingredients": "پنیر خامه‌ای، پایه بیسکویتی",
+    "img": "images/Cheesecake.png",
+    "category": "dessert"
   }
 ]

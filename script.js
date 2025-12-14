@@ -1,17 +1,46 @@
-let currentLang = "en"; // default language
+let currentLang = "en";
+let currentCategory = "all";
 
-async function loadMenu(lang = "en") {
+/* ---------- Tab Labels for EN & FA ---------- */
+const tabLabels = {
+  en: {
+    all: "All",
+    pizza: "Pizza",
+    burgers: "Burgers",
+    salads: "Salads",
+    "hot-drinks": "Hot Drinks",
+    "cold-drinks": "Cold Drinks",
+    dessert: "Dessert"
+  },
+  fa: {
+    all: "همه",
+    pizza: "پیتزا",
+    burgers: "برگر",
+    salads: "سالاد",
+    "hot-drinks": "نوشیدنی داغ",
+    "cold-drinks": "نوشیدنی سرد",
+    dessert: "دسر"
+  }
+};
+
+/* ---------- Load Menu Function ---------- */
+async function loadMenu(lang = currentLang, category = currentCategory) {
   const menuContainer = document.getElementById("menu");
-  menuContainer.innerHTML = ""; // clear existing items
+  menuContainer.innerHTML = "";
 
   try {
     const res = await fetch(`menu-${lang}.json`);
     const data = await res.json();
 
-    data.forEach((item, i) => {
+    const filtered =
+      category === "all"
+        ? data
+        : data.filter(item => item.category === category);
+
+    filtered.forEach((item, i) => {
       const card = document.createElement("div");
       card.className = "card";
-      card.style.animationDelay = `${i * 0.1}s`;
+      card.style.animationDelay = `${i * 0.08}s`;
 
       card.innerHTML = `
         <img src="${item.img}" alt="${item.name}">
@@ -24,41 +53,63 @@ async function loadMenu(lang = "en") {
 
       menuContainer.appendChild(card);
     });
+
   } catch (err) {
-    console.error("Failed to load menu:", err);
-    menuContainer.innerHTML = "<p style='text-align:center'>Could not load menu.</p>";
+    console.error("Menu load error:", err);
+    menuContainer.innerHTML =
+      "<p style='text-align:center'>Could not load menu.</p>";
   }
 }
 
-// 🌐 Get buttons
+/* ---------- Language Switch ---------- */
 const enBtn = document.getElementById("en-btn");
 const faBtn = document.getElementById("fa-btn");
 
-// 🌐 Language switch logic
 enBtn.addEventListener("click", () => {
   currentLang = "en";
-  loadMenu("en");
+  loadMenu();
+  updateTabLabels("en");
 
-  // button style update
   enBtn.classList.add("active");
   faBtn.classList.remove("active");
-
-  // reset text direction if Persian was active
   document.body.setAttribute("dir", "ltr");
 });
 
 faBtn.addEventListener("click", () => {
   currentLang = "fa";
-  loadMenu("fa");
+  loadMenu();
+  updateTabLabels("fa");
 
-  // button style update
   faBtn.classList.add("active");
   enBtn.classList.remove("active");
-
-  // change direction for Persian
   document.body.setAttribute("dir", "rtl");
 });
 
-// 🟢 Initial setup
+/* ---------- Category Tabs ---------- */
+const tabs = document.querySelectorAll(".tab");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    currentCategory = tab.dataset.category;
+    loadMenu();
+  });
+});
+
+/* ---------- Update Tab Labels Function ---------- */
+function updateTabLabels(lang) {
+  tabs.forEach(tab => {
+    const category = tab.dataset.category;
+    if (tabLabels[lang][category]) {
+      tab.textContent = tabLabels[lang][category];
+    }
+  });
+}
+
+/* ---------- Initial Load ---------- */
 enBtn.classList.add("active");
-loadMenu(); // initial load
+document.body.setAttribute("dir", "ltr");
+updateTabLabels(currentLang);
+loadMenu();

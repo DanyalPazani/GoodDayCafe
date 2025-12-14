@@ -31,7 +31,7 @@ header {
 }
 
 header h1 {
-  font-size: 1.9rem;
+  font-size: 2rem;
   color: #e8e8e8;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
@@ -40,6 +40,94 @@ header h1 {
   color: #d9d9d9;
   font-size: 1rem;
   margin-top: 0.2rem;
+}
+
+/* ----- Language Switch ----- */
+.lang-switch {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.lang-btn {
+  background: #0b2545;
+  color: #fff;
+  border: none;
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.lang-btn:hover {
+  background: #004b49;
+}
+
+.lang-btn.active {
+  background: #e0c097;
+  color: #0b2545;
+  font-weight: 600;
+}
+
+/* ===============================
+   CATEGORY TABS (FINAL)
+================================ */
+
+.category-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+
+  display: flex;
+  justify-content: center;
+
+  background: rgb(12, 64, 88);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+
+  padding: 0.7rem 1rem;
+}
+
+/* Inner wrapper to center rows nicely */
+.category-tabs-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Individual tabs */
+.tab {
+  all: unset;
+
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+
+  border: 1.5px solid #ffffff;
+  background: transparent;
+
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tab:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tab.active {
+  background: #e0c097;
+  color: #0b2545;
+  border-color: #e0c097;
 }
 
 /* ----- Menu Grid ----- */
@@ -72,10 +160,9 @@ header h1 {
   width: 100%;
   height: 190px;
   object-fit: cover;
-  border-bottom: 4px solid #004b49; /* dark green accent */
+  border-bottom: 4px solid #004b49;
 }
 
-/* ----- Card Content ----- */
 .card-content {
   padding: 1.2rem;
   background-color: #f9faf9;
@@ -83,12 +170,12 @@ header h1 {
 
 .card-content h3 {
   font-size: 1.2rem;
-  color: #0b2545; /* navy */
+  color: #0b2545;
   margin-bottom: 0.4rem;
 }
 
 .price {
-  color: #004b49; /* dark green */
+  color: #004b49;
   font-weight: 600;
   margin-bottom: 0.6rem;
 }
@@ -105,7 +192,17 @@ footer {
   padding: 1.2rem;
   font-size: 0.85rem;
   color: #fff;
-  background: #0b2545; /* navy */
+  background: #0b2545;
+}
+
+.dev-name {
+  font-weight: 600;
+  color: #ffd195;
+  text-decoration: none;
+}
+
+.dev-name:hover {
+  color: #ffffff;
 }
 
 /* ----- Animations ----- */
@@ -116,70 +213,12 @@ footer {
   }
 }
 
-.dev-name {
-  font-weight: 600;
-  color: #ffd195; /* a warm, subtle wood-gold tone */
-  text-decoration: none;
-}
-.dev-name:hover {
-  color: #ffffff;
-  transition: color 0.3s ease;
-}
-
-/* ----- Language Switch ----- */
-.lang-switch {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
-  display: flex;
-  gap: 0.4rem;
-}
-
-.lang-btn {
-  background: #0b2545; /* navy */
-  color: #fff;
-  border: none;
-  padding: 0.35rem 0.7rem;
-  border-radius: 0.5rem;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.lang-btn:hover {
-  background: #004b49; /* dark green */
-}
-
-.lang-btn.active {
-  background: #e0c097; /* wood tone */
-  color: #0b2545;
-  font-weight: 600;
-}
-.lang-switch {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.lang-switch button {
-  background-color: #f3f3f3; /* cream */
-  color: #001f3f; /* navy */
-  border: 2px solid #001f3f;
-  margin-left: 6px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Hover effect */
-.lang-switch button:hover {
-  background-color: #e5e5e5;
-}
-
-/* Active (selected) language button */
-.lang-switch button.active {
-  background-color: #001f3f; /* navy */
-  color: #f3f3f3; /* cream */
+/* ===============================
+   Mobile polish
+================================ */
+@media (max-width: 640px) {
+  .tab {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.75rem;
+  }
 }

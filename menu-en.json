@@ -3,30 +3,91 @@
     "name": "Margherita Pizza",
     "price": 8.5,
     "ingredients": "Tomato sauce, mozzarella, basil, olive oil",
-    "img": "images/Margherita Pizza.png"
+    "img": "images/Margherita Pizza.png",
+    "category": "pizza"
   },
   {
-    "name": "Spaghetti Bolognese",
-    "price": 9.25,
-    "ingredients": "Beef ragu, slow-cooked tomato sauce, parmesan",
-    "img": "images/Spaghetti Bolognese.PNG"
+    "name": "Pepperoni Pizza",
+    "price": 9.2,
+    "ingredients": "Tomato sauce, mozzarella, pepperoni",
+    "img": "images/Pepperoni Pizza.png",
+    "category": "pizza"
+  },
+  {
+    "name": "Classic Beef Burger",
+    "price": 8.9,
+    "ingredients": "Beef patty, cheddar, lettuce, tomato, house sauce",
+    "img": "images/Hamburger.png",
+    "category": "burgers"
+  },
+  {
+    "name": "Chicken Burger",
+    "price": 8.3,
+    "ingredients": "Grilled chicken, lettuce, mayo",
+    "img": "images/Chicken Burger.png",
+    "category": "burgers"
   },
   {
     "name": "Grilled Chicken Caesar Salad",
     "price": 7.75,
-    "ingredients": "Romaine, grilled chicken, caesar dressing, croutons",
-    "img": "images/Grilled Chicken Caesar Salad.png"
+    "ingredients": "Romaine, grilled chicken, caesar dressing",
+    "img": "images/Grilled Chicken Caesar Salad.png",
+    "category": "salads"
   },
   {
-    "name": "Iced Latte",
-    "price": 3.5,
-    "ingredients": "Espresso, cold milk, ice cubes",
-    "img": "images/Iced latte.png"
+    "name": "Greek Salad",
+    "price": 6.5,
+    "ingredients": "Tomato, cucumber, olives, feta cheese",
+    "img": "images/Greek salad.png",
+    "category": "salads"
+  },
+  {
+    "name": "Cappuccino",
+    "price": 3.2,
+    "ingredients": "Espresso, steamed milk, foam",
+    "img": "images/Hot latte.png",
+    "category": "hot-drinks"
+  },
+  {
+    "name": "Hot Latte",
+    "price": 3.4,
+    "ingredients": "Espresso, hot milk",
+    "img": "images/Hot latte.png",
+    "category": "hot-drinks"
+  },
+  {
+    "name": "Mojito (Non-Alcoholic)",
+    "price": 4.2,
+    "ingredients": "Fresh lime, mint, soda",
+    "img": "images/Mojito.png",
+    "category": "cold-drinks"
+  },
+  {
+    "name": "Blue Lagoon",
+    "price": 4.3,
+    "ingredients": "Blue curaçao syrup, lemon, soda",
+    "img": "images/Blue Lagoon.png",
+    "category": "cold-drinks"
+  },
+  {
+    "name": "Strawberry Mojito",
+    "price": 4.5,
+    "ingredients": "Strawberry, mint, lime, soda",
+    "img": "images/Strawberry Mojito.png",
+    "category": "cold-drinks"
   },
   {
     "name": "Chocolate Lava Cake",
     "price": 4.9,
-    "ingredients": "Dark chocolate, butter, eggs, sugar, cocoa powder",
-    "img": "images/Chocolate Lava Cake.png"
+    "ingredients": "Dark chocolate, butter, eggs",
+    "img": "images/Chocolate Lava Cake.png",
+    "category": "dessert"
+  },
+  {
+    "name": "Cheesecake",
+    "price": 4.5,
+    "ingredients": "Cream cheese, biscuit base",
+    "img": "images/Cheesecake.png",
+    "category": "dessert"
   }
 ]

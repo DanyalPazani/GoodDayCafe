@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Good Day+</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #f4f4f4 0%, #e8e8e8 100%);
+      color: #2a2a2a;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      background-image: url('wood-texture.png');
+      color: #ffffff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 { font-size: 1.9rem; color: #e8e8e8; text-shadow: 1px 1px 3px rgba(0,0,0,0.4); }
+    .subtitle { color: #d9d9d9; font-size: 1rem; margin-top: 0.2rem; }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      flex: 1;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img { width: 100%; height: 190px; object-fit: cover; border-bottom: 4px solid #004b49; }
+
+    .card-content { padding: 1.2rem; background-color: #f9faf9; }
+    .card-content h3 { font-size: 1.2rem; color: #0b2545; margin-bottom: 0.4rem; }
+    .price { color: #004b49; font-weight: 600; margin-bottom: 0.6rem; }
+    .ingredients { font-size: 0.9rem; color: #444; line-height: 1.4; }
+
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 0.85rem;
+      color: #fff;
+      background: #0b2545;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dev-name {
+      font-weight: 600;
+      color: #ffd195;
+      text-decoration: none;
+    }
+    .dev-name:hover { color: #ffffff; transition: color 0.3s ease; }
+
+    .lang-switch {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .lang-btn {
+      background: #0b2545;
+      color: #fff;
+      border: none;
+      padding: 0.35rem 0.7rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .lang-btn:hover { background: #004b49; }
+    .lang-btn.active { background: #e0c097; color: #0b2545; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>☕ Good Day+ Café Online Menu</h1>
+    <p class="subtitle">Discover our freshly made dishes</p>
+
+    <div class="lang-switch">
+      <button id="en-btn" class="lang-btn active">EN</button>
+      <button id="fa-btn" class="lang-btn">FA</button>
+    </div>
+  </header>
+
+  <main id="menu" class="menu"></main>
+
+  <footer>
+    <p>© 2025 Good Day+ Café — Website designed & developed by 
+      <a href="https://danyalpazani.github.io/DP/" target="_blank" class="dev-name">DP</a>
+    </p>
+  </footer>
+
+  <script>
+    let currentLang = "en";
+
+    const menuData = {
+      en: [
+        {name: "Margherita Pizza", price: 8.5, ingredients: "Tomato sauce, mozzarella, basil, olive oil", img: "Margherita Pizza.png"},
+        {name: "Spaghetti Bolognese", price: 9.25, ingredients: "Beef ragu, slow-cooked tomato sauce, parmesan", img: "Spaghetti Bolognese.PNG"},
+        {name: "Grilled Chicken Caesar Salad", price: 7.75, ingredients: "Romaine, grilled chicken, caesar dressing, croutons", img: "Grilled Chicken Caesar Salad.png"},
+        {name: "Iced Latte", price: 3.5, ingredients: "Espresso, cold milk, ice cubes", img: "Iced latte.png"},
+        {name: "Chocolate Lava Cake", price: 4.9, ingredients: "Dark chocolate, butter, eggs, sugar, cocoa powder", img: "Chocolate Lava Cake.png"}
+      ],
+      fa: [
+        {name: "پیتزای مارگاریتا", price: 8.5, ingredients: "سس گوجه‌فرنگی، موزارلا، ریحان، روغن زیتون", img: "Margherita Pizza.png"},
+        {name: "اسپاگتی بولونز", price: 9.25, ingredients: "رگو گوشت گاو، سس گوجه پخته، پارمزان", img: "Spaghetti Bolognese.PNG"},
+        {name: "سالاد سزار با مرغ گریل‌شده", price: 7.75, ingredients: "کاهو رومن، مرغ گریل‌شده، سس سزار، کروتون", img: "Grilled Chicken Caesar Salad.png"},
+        {name: "لته سرد", price: 3.5, ingredients: "اسپرسو، شیر سرد، یخ", img: "Iced latte.png"},
+        {name: "کیک شکلاتی لاوا", price: 4.9, ingredients: "شکلات تلخ، کره، تخم‌مرغ، شکر، پودر کاکائو", img: "Chocolate Lava Cake.png"}
+      ]
+    };
+
+    function loadMenu(lang = "en") {
+      const menuContainer = document.getElementById("menu");
+      menuContainer.innerHTML = "";
+
+      const data = menuData[lang];
+      data.forEach((item, i) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.style.animationDelay = `${i*0.1}s`;
+
+        card.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <div class="card-content">
+            <h3>${item.name}</h3>
+            <p class="price">$${item.price.toFixed(2)}</p>
+            <p class="ingredients">${item.ingredients}</p>
+          </div>
+        `;
+        menuContainer.appendChild(card);
+      });
+    }
+
+    const enBtn = document.getElementById("en-btn");
+    const faBtn = document.getElementById("fa-btn");
+
+    enBtn.addEventListener("click", () => {
+      currentLang = "en";
+      loadMenu("en");
+      enBtn.classList.add("active");
+      faBtn.classList.remove("active");
+      document.body.setAttribute("dir","ltr");
+    });
+
+    faBtn.addEventListener("click", () => {
+      currentLang = "fa";
+      loadMenu("fa");
+      faBtn.classList.add("active");
+      enBtn.classList.remove("active");
+      document.body.setAttribute("dir","rtl");
+    });
+
+    loadMenu(currentLang);
+  </script>
+</body>
+</html>
